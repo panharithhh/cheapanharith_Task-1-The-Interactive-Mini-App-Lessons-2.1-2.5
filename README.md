@@ -1,32 +1,22 @@
-# React + TypeScript + Vite
+# Task 1 — The Interactive Mini-App (Lessons 2.1–2.5)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Student: Chea Panharith
 
-Currently, two official plugins are available:
+An interactive product catalog built with React 19, TypeScript, and Tailwind CSS featuring state-driven filtering, controlled forms with inline validation, and strict interface type checking.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Deliverables
 
-## React Compiler
+### 1. TypeScript Deliberate Error Finding
+> When `price` was deliberately passed as a string (e.g. `price: "49.99"`), TypeScript flagged `error TS2322: Type 'string' is not assignable to type 'number'` because the `Product` interface strictly defines `price` as `number`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. Screenshots
+- `screenshots/1_grid_with_badges.png`: Product grid with counts and ternary in-stock / sold-out badges.
+- `screenshots/2_filtered_view.png`: State-driven "In stock only" filtered view with live count updates.
+- `screenshots/3_validation_error.png`: Controlled form with inline validation errors on empty/invalid inputs.
+- `screenshots/4_tsc_passing.png`: Terminal output showing `npx tsc --noEmit` passing with 0 errors.
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Audit Checklist
+- Value + onChange on every input (controlled form).
+- Zero index keys (stable `id` keys).
+- Zero `if` statements inside JSX (ternary and `&&` only).
+- Clean `tsc` compilation (`npx tsc --noEmit` passes).
